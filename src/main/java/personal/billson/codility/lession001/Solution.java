@@ -12,11 +12,12 @@ import java.util.logging.Logger;
  */
 public class Solution {
 
-	private static boolean IS_DEBUG = Boolean.TRUE;
+	private static boolean IS_DEBUG = Boolean.FALSE;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		IS_DEBUG = Boolean.TRUE;
 		Solution sol = new Solution();
 		
 		int N = 0;
@@ -29,7 +30,7 @@ public class Solution {
 		Logger.getGlobal().log( Level.INFO, "Passing|"+N );
 		Logger.getGlobal().log( Level.INFO, "Max Matched|"+sol.solution( N ) );
 		*/
-		N = 31;
+		N = 6;
 		Logger.getGlobal().log( Level.INFO, "Passing|"+N );
 		Logger.getGlobal().log( Level.INFO, "Max Matched|"+sol.solution( N ) );
 
@@ -64,7 +65,7 @@ public class Solution {
 			
 			chrCurrent = strBinary.charAt( intBinaryLoop );
 
-			if ( chrCurrent==CHR_TARGET )
+			if ( chrCurrent==CHR_TARGET && intBinaryLoop < intBinaryLength - 1 )
 			{
 				intMatchedCurrent = 1;
 			}
@@ -89,7 +90,9 @@ public class Solution {
 					if ( intBinaryLoopCheck == ( intBinaryLength - 1 ) )
 					{
 						intBinaryLoop = intBinaryLoopCheck;
+						
 						intMatchedCurrent = 0;
+						
 					}
 					
 //					Logger.getGlobal().log( Level.INFO, "Matched|"+intMatchedCurrent );
